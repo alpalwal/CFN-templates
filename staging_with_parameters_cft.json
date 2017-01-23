@@ -1,7 +1,3 @@
-#things to update / paramaterize
-#AZ / region
-#AMI ID
-#key pair
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   
@@ -14,24 +10,37 @@
     },   
 
     "AmiName" : {
-      "Description" : "Name of the AWS AMI for this region.",
+      "Description" : "Name of the AWS AMI IN THIS REGION.",
       "Type": "String",
       "MinLength": "12",
       "MaxLength": "12",
       "Default": "ami-1e299d7e",
       "AllowedPattern": "ami-.*",
       "ConstraintDescription": "must start with ami-*"
+    },
+     "SubnetAZa": {
+      "Description": "First Availability Zone of the Subnets",
+      "Type": "AWS::EC2::AvailabilityZone::Name"
+    },
+     "SubnetAZb": {
+      "Description": "Second Availability Zone of the Subnets",
+      "Type": "AWS::EC2::AvailabilityZone::Name"
+    },
+     "SubnetAZc": {
+      "Description": "Third Availability Zone of the Subnets",
+      "Type": "AWS::EC2::AvailabilityZone::Name"
     }
-  
-
 
 },
+
+
+
 
   "Resources": {
     "privateSubnetA": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-west-2a",
+        "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "CidrBlock": "10.10.1.0/24",
         "VpcId": {
           "Ref": "ProdVPC"
@@ -56,7 +65,7 @@
     "privateSubnetB": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-west-2b",
+        "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "CidrBlock": "10.10.2.0/24",
         "VpcId": {
           "Ref": "ProdVPC"
@@ -81,7 +90,7 @@
     "privateSubnetC": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-west-2c",
+        "AvailabilityZone": { "Ref" : "SubnetAZc" },
         "CidrBlock": "10.10.3.0/24",
         "VpcId": {
           "Ref": "ProdVPC"
@@ -106,7 +115,7 @@
     "PublicSubnetA": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-west-2a",
+        "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "CidrBlock": "10.10.4.0/24",
         "VpcId": {
           "Ref": "ProdVPC"
@@ -131,7 +140,7 @@
     "PublicSubnetB": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-west-2b",
+        "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "CidrBlock": "10.10.5.0/24",
         "VpcId": {
           "Ref": "ProdVPC"
@@ -156,7 +165,7 @@
     "PublicSubnetC": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-west-2c",
+        "AvailabilityZone": { "Ref" : "SubnetAZc" },
         "CidrBlock": "10.10.6.0/24",
         "VpcId": {
           "Ref": "ProdVPC"
@@ -483,7 +492,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "InstanceType": "t2.micro",
         "KeyName": { "Ref" : "KeyName" },
-        "AvailabilityZone": "us-west-2a",
+        "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "Tags": [
           {
             "Key": "Name",
@@ -531,7 +540,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "InstanceType": "t2.micro",
         "KeyName": { "Ref" : "KeyName" },
-        "AvailabilityZone": "us-west-2b",
+        "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "Tags": [
           {
             "Key": "Name",
@@ -579,7 +588,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
         "InstanceType": "t2.micro",
-        "AvailabilityZone": "us-west-2c",
+        "AvailabilityZone": { "Ref" : "SubnetAZc" },
         "Tags": [
           {
             "Key": "Name",
@@ -616,7 +625,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "InstanceType": "t2.micro",
         "KeyName": { "Ref" : "KeyName" },
-        "AvailabilityZone": "us-west-2c",
+        "AvailabilityZone": { "Ref" : "SubnetAZc" },
         "Tags": [
           {
             "Key": "Name",
@@ -667,7 +676,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
         "InstanceType": "t2.micro",
-        "AvailabilityZone": "us-west-2a",
+        "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "Tags": [
           {
             "Key": "Name",
@@ -718,7 +727,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
         "InstanceType": "t2.micro",
-        "AvailabilityZone": "us-west-2b",
+        "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "Tags": [
           {
             "Key": "Name",
@@ -769,7 +778,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
         "InstanceType": "t2.micro",
-        "AvailabilityZone": "us-west-2a",
+        "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "Tags": [
           {
             "Key": "Name",
@@ -823,7 +832,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
         "InstanceType": "t2.micro",
-        "AvailabilityZone": "us-west-2b",
+        "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "Tags": [
           {
             "Key": "Name",
@@ -874,7 +883,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
         "InstanceType": "t2.micro",
-        "AvailabilityZone": "us-west-2a",
+        "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "Tags": [
           {
             "Key": "Name",
@@ -925,7 +934,7 @@
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
         "InstanceType": "t2.micro",
-        "AvailabilityZone": "us-west-2b",
+        "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "Tags": [
           {
             "Key": "Name",
