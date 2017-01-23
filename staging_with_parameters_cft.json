@@ -491,7 +491,7 @@
           }
         ],
         "ImageId": { "Ref" : "AmiName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "KeyName": { "Ref" : "KeyName" },
         "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "Tags": [
@@ -539,7 +539,7 @@
           "Ref": "privateSubnetB"
         },
         "ImageId": { "Ref" : "AmiName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "KeyName": { "Ref" : "KeyName" },
         "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "Tags": [
@@ -588,7 +588,7 @@
         },
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "AvailabilityZone": { "Ref" : "SubnetAZc" },
         "Tags": [
           {
@@ -624,7 +624,7 @@
       "Type": "AWS::EC2::Instance",
       "Properties": {
         "ImageId": { "Ref" : "AmiName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "KeyName": { "Ref" : "KeyName" },
         "AvailabilityZone": { "Ref" : "SubnetAZc" },
         "Tags": [
@@ -676,7 +676,7 @@
       "Properties": {
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "Tags": [
           {
@@ -727,7 +727,7 @@
       "Properties": {
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "Tags": [
           {
@@ -778,7 +778,7 @@
       "Properties": {
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "Tags": [
           {
@@ -832,7 +832,7 @@
       "Properties": {
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "Tags": [
           {
@@ -883,7 +883,7 @@
       "Properties": {
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "AvailabilityZone": { "Ref" : "SubnetAZa" },
         "Tags": [
           {
@@ -934,7 +934,7 @@
       "Properties": {
         "ImageId": { "Ref" : "AmiName" },
         "KeyName": { "Ref" : "KeyName" },
-        "InstanceType": "t2.micro",
+        "InstanceType": "t2.nano",
         "AvailabilityZone": { "Ref" : "SubnetAZb" },
         "Tags": [
           {
