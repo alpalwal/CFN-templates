@@ -1,3 +1,4 @@
+#you need to run this in a region with 3 AZs
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   
